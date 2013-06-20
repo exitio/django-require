@@ -25,7 +25,7 @@ def require_module(module):
             module = staticfiles_storage.url(resolve_require_module(require_settings.REQUIRE_STANDALONE_MODULES[module]["out"])),
             cachebusting = require_settings.REQUIRE_CACHE_BUSTING_STR,
         )
-    return u"""<script src="{src}{cachebusting}" data-main="{module}"></script>""".format(
+    return u"""<script src="{src}" data-main="{module}{cachebusting}"></script>""".format(
         src = staticfiles_storage.url(resolve_require_url(require_settings.REQUIRE_JS)),
         module = staticfiles_storage.url(resolve_require_module(module)),
         cachebusting = require_settings.REQUIRE_CACHE_BUSTING_STR,
